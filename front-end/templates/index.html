@@ -1,0 +1,22 @@
+<!-- frontend/templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item List</title>
+</head>
+<body>
+    <h1>Items</h1>
+    <ul>
+        {% for item in items %}
+            <li>{{ loop.index0 }} - {{ item['name'] }} 
+                <a href="/delete/{{ loop.index0 }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <form action="/add" method="post">
+        <input type="text" name="name" placeholder="Add new item" required>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>
